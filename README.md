@@ -56,31 +56,31 @@ To begin with this project, follow these steps:
    ```
 
 # SOLIDITY CODE 
-   // SPDX-License-Identifier: UNLICENSED
-   pragma solidity ^0.8.9;
-
-   contract CharityDonation {
-       // State variables
-       address payable public contractOwner;  
-        // Address of the contract owner (who deployed the contract)
-       uint256 public totalContribution;      
-        // Total amount of contributions received
-       uint256 public contributionGoal;       
-        // Goal amount that contributors are aiming to reach
+      // SPDX-License-Identifier: UNLICENSED
+      pragma solidity ^0.8.9;
    
-       // Events
-       event ContributionReceived(address indexed contributor, uint256 amount); 
-       // Event emitted when a contribution is received
-       event FundsExtracted(uint256 amount);   
-       // Event emitted when funds are withdrawn by the contract owner
-       event GoalDefined(uint256 goalAmount);  
-       // Event emitted when the contribution goal is defined
-   
-       // Constructor - executed once upon contract deployment
-       constructor() {
-           contractOwner = payable(msg.sender); 
-           // Set the contract owner to the address deploying the contract
-       }
+      contract CharityDonation {
+          // State variables
+          address payable public contractOwner;  
+           // Address of the contract owner (who deployed the contract)
+          uint256 public totalContribution;      
+           // Total amount of contributions received
+          uint256 public contributionGoal;       
+           // Goal amount that contributors are aiming to reach
+      
+          // Events
+          event ContributionReceived(address indexed contributor, uint256 amount); 
+          // Event emitted when a contribution is received
+          event FundsExtracted(uint256 amount);   
+          // Event emitted when funds are withdrawn by the contract owner
+          event GoalDefined(uint256 goalAmount);  
+          // Event emitted when the contribution goal is defined
+      
+          // Constructor - executed once upon contract deployment
+          constructor() {
+              contractOwner = payable(msg.sender); 
+              // Set the contract owner to the address deploying the contract
+          }
    
        // Function to define the contribution goal
        function defineGoal(uint256 _goalAmount) external {
@@ -130,24 +130,24 @@ To begin with this project, follow these steps:
            emit FundsExtracted(amount); 
            // Emit an event indicating funds have been withdrawn
        }
-   }
+      }
 
 
 
 # FRONTEND 
 
-   import { useState, useEffect } from "react";  // Importing necessary hooks from React
-   import { ethers } from "ethers";  // Importing ethers library for Ethereum interactions
-   import CharityDonationABI from "../artifacts/contracts/Assessment.sol/CharityDonation.json";  // Importing ABI of the smart contract
-   
-   export default function HomePage() {
-     const [account, setAccount] = useState(null);  // State variable to store current Ethereum account
-     const [contract, setContract] = useState(null);  // State variable to store instance of the smart contract
-     const [balance, setBalance] = useState("0");  // State variable to store balance of contributions
-   
-     const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";  // Address of the deployed smart contract
-     const CharityDonation_ABI = CharityDonationABI.abi;  // ABI (Application Binary Interface) of the smart contract
-   
+      import { useState, useEffect } from "react";  // Importing necessary hooks from React
+      import { ethers } from "ethers";  // Importing ethers library for Ethereum interactions
+      import CharityDonationABI from "../artifacts/contracts/Assessment.sol/CharityDonation.json";  // Importing ABI of the smart contract
+      
+      export default function HomePage() {
+        const [account, setAccount] = useState(null);  // State variable to store current Ethereum account
+        const [contract, setContract] = useState(null);  // State variable to store instance of the smart contract
+        const [balance, setBalance] = useState("0");  // State variable to store balance of contributions
+      
+        const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";  // Address of the deployed smart contract
+        const CharityDonation_ABI = CharityDonationABI.abi;  // ABI (Application Binary Interface) of the smart contract
+      
      useEffect(() => {
        // Function to initialize contract and account information
        const initialize = async () => {
@@ -302,7 +302,7 @@ To begin with this project, follow these steps:
          `}</style>
        </main>
      );
-   }
+      }
 
 
 **Interact with the contract:**
